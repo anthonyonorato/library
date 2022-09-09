@@ -4,9 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
   <body>
-
+    <header class="header">
+      <div class="container">
+        <h1>library</h1>
+        <nav>
+          <div class="lds-dual-ring active" id="loadingRing"></div>
+          <div class="logged-out" id="loggedOut">
+            <button class="btn" id="logInBtn">Log in</button>
+          </div>
+          <div class="logged-in" id="loggedIn">
+            <button class="btn" id="accountBtn">Account</button>
+            <button class="btn" id="logOutBtn">Log out</button>
+          </div>
+        </nav>
+      </div>
+    </header>
   </body>
 </html>
