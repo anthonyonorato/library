@@ -155,3 +155,49 @@ class Book {
       bookCard.appendChild(buttonGroup)
       booksGrid.appendChild(bookCard)
     }
+
+    const getBookFromInput = () => {
+      const title = document.getElementById('title').value
+      const author = document.getElementById('author').value
+      const pages = document.getElementById('pages').value
+      const isRead = document.getElementById('isRead').checked
+      return new Book(title, author, pages, isRead)
+    }
+    
+    const addBook = (e) => {
+      e.preventDefault()
+      const newBook = getBookFromInput()
+    
+      if (library.isInLibrary(newBook)) {
+        errorMsg.textContent = 'This book already exists in your library'
+        errorMsg.classList.add('active')
+        return
+      }
+    
+      if (auth.currentUser) {
+        addBookDB(newBook)
+      } else {
+        library.addBook(newBook)
+        saveLocal()
+        updateBooksGrid()
+      }
+    
+      closeAddBookModal()
+    }
+    
+    const removeBook = (e) => {
+      const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll(
+        '"',
+        ''
+      )
+    
+      if (auth.currentUser) {
+        removeBookDB(title)
+      } else {
+        library.removeBook(title)
+        saveLocal()
+        updateBooksGrid()
+      }
+    }
+
+    
