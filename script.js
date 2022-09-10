@@ -74,3 +74,16 @@ class Book {
         accountModal.innerHTML = ''
       }
     }
+
+    const openAddBookModal = () => {
+      addBookForm.reset()
+      addBookModal.classList.add('active')
+      overlay.classList.add('active')
+    }
+    
+    const closeAddBookModal = () => {
+      addBookModal.classList.remove('active')
+      overlay.classList.remove('active')
+      errorMsg.classList.remove('active')
+      errorMsg.textContent = ''
+    }
