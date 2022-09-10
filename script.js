@@ -102,3 +102,18 @@ class Book {
       closeAddBookModal()
       closeAccountModal()
     }
+
+    const handleKeyboardInput = (e) => {
+      if (e.key === 'Escape') closeAllModals()
+    }
+    
+    const updateBooksGrid = () => {
+      resetBooksGrid()
+      for (let book of library.books) {
+        createBookCard(book)
+      }
+    }
+    
+    const resetBooksGrid = () => {
+      booksGrid.innerHTML = ''
+    }
