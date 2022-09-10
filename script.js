@@ -54,4 +54,23 @@ class Book {
     const loggedOut = document.getElementById('loggedOut')
     const loadingRing = document.getElementById('loadingRing')
     
- 
+    const setupNavbar = (user) => {
+      if (user) {
+        loggedIn.classList.add('active')
+        loggedOut.classList.remove('active')
+      } else {
+        loggedIn.classList.remove('active')
+        loggedOut.classList.add('active')
+      }
+      loadingRing.classList.remove('active')
+    }
+    
+    const setupAccountModal = (user) => {
+      if (user) {
+        accountModal.innerHTML = `
+          <p>Logged in as</p>
+          <p><strong>${user.email.split('@')[0]}</strong></p>`
+      } else {
+        accountModal.innerHTML = ''
+      }
+    }
