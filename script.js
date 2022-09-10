@@ -200,4 +200,24 @@ class Book {
       }
     }
 
+    const toggleRead = (e) => {
+      const title = e.target.parentNode.parentNode.firstChild.innerHTML.replaceAll(
+        '"',
+        ''
+      )
+      const book = library.getBook(title)
     
+      if (auth.currentUser) {
+        toggleBookIsReadDB(book)
+      } else {
+        book.isRead = !book.isRead
+        saveLocal()
+        updateBooksGrid()
+      }
+    }
+    
+    accountBtn.onclick = openAccountModal
+    addBookBtn.onclick = openAddBookModal
+    overlay.onclick = closeAllModals
+    addBookForm.onsubmit = addBook
+    window.onkeydown = handleKeyboardInput
