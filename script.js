@@ -20,3 +20,13 @@ form.addEventListener('submit', (e) => {
   let submittedPages = e.target[2].value
   let submittedIsRead = e.target[3].checked
 
+  let div = document.createElement("div");
+  div.setAttribute("class", "bookCard");
+
+  let newTitle = document.createElement("p");
+  let newAuthor = document.createElement("p");
+  let newPages = document.createElement("p");
+
+  let statusBtn = document.createElement("button");
+  let removeBtn = document.createElement("button");
+  
