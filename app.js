@@ -40,22 +40,22 @@ form.addEventListener('submit', (e) => {
 
     if (submittedIsRead === true) {
       statusBtn.setAttribute("class", "btn completedBtn");
-      statusBtn.innerText = "Completed";
+      statusBtn.innerText = "Read";
     } else if (submittedIsRead === false) {
       statusBtn.setAttribute("class", "btn notCompletedBtn");
-      statusBtn.innerText = "Not Completed";
+      statusBtn.innerText = "Unread";
     } else {
         alert("Invalid Entry")
     }
 
     statusBtn.addEventListener('click', (btn)=>{
         let btnText = btn.target.innerText
-        if(btnText === "Completed"){
+        if(btnText === "Read"){
             btn.target.className = "btn notCompletedBtn";
             btn.target.innerText = "Not Completed";
             return
         }
-        if(btnText === "Not Completed"){
+        if(btnText === "Unread"){
             btn.target.className = "btn completedBtn";
             btn.target.innerText = "Completed";
             return
