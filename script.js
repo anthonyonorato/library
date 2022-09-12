@@ -48,3 +48,42 @@ form.addEventListener('submit', (e) => {
       alert("Invalid Entry")
   }
 
+  statusBtn.addEventListener('click', (btn)=>{
+    let btnText = btn.target.innerText
+    if(btnText === "Completed"){
+        btn.target.className = "btn notCompletedBtn";
+        btn.target.innerText = "Not Completed";
+        return
+    }
+    if(btnText === "Not Completed"){
+        btn.target.className = "btn completedBtn";
+        btn.target.innerText = "Completed";
+        return
+    }
+})
+
+removeBtn.addEventListener('click', (e) =>{
+    e.path[1].remove()
+})
+
+div.appendChild(newTitle);
+div.appendChild(newAuthor);
+div.appendChild(newPages);
+div.appendChild(statusBtn);
+div.appendChild(removeBtn);
+
+booksDisplay.appendChild(div);
+
+overlay.classList.remove('active');
+formContainer.classList.remove('active');
+})
+
+addBookBtn.addEventListener('click', ()=>{
+overlay.classList.add('active')
+formContainer.classList.add('active')
+})
+
+overlay.addEventListener('click', ()=>{
+overlay.classList.remove('active')
+formContainer.classList.remove('active')
+})
