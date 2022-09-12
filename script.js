@@ -29,4 +29,22 @@ form.addEventListener('submit', (e) => {
 
   let statusBtn = document.createElement("button");
   let removeBtn = document.createElement("button");
-  
+ 
+  newTitle.innerText = submittedTitle;
+  newAuthor.innerText = submittedAuthor;
+  newPages.innerText = `${submittedPages} Pgs`;
+  statusBtn.setAttribute("id", "statusBtn");
+  removeBtn.setAttribute("class", "btn");
+  removeBtn.setAttribute("id", 'removeBtn')
+  removeBtn.innerText = "Remove";
+
+  if (submittedIsRead === true) {
+    statusBtn.setAttribute("class", "btn completedBtn");
+    statusBtn.innerText = "Completed";
+  } else if (submittedIsRead === false) {
+    statusBtn.setAttribute("class", "btn notCompletedBtn");
+    statusBtn.innerText = "Not Completed";
+  } else {
+      alert("Invalid Entry")
+  }
+
